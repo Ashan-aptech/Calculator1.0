@@ -1,5 +1,3 @@
-console.log("script")
-
 function onPress(value){
   let number = document.getElementById("number");
   number.value += value;
