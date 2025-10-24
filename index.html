@@ -3,98 +3,40 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Calculator</title>
-  <style>
-    * {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-    font-family: Arial, sans-serif;
-  }
-  
-  body {
-    background-color: #fff;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 100vh;
-  }
-  
-  .calculator {
-    background-color: white;
-    padding: 20px;
-    border-radius: 10px;
-    box-shadow: 0 6px 10px rgba(0,0,0,0.3);
-    width: 250px;
-    text-align: center;
-  }
-  
-  #number {
-    width: 100%;
-    height: 50px;
-    font-size: 22px;
-    text-align: right;
-    padding-right: 10px;
-    margin-bottom: 15px;
-    border: 1px solid #ccc;
-    border-radius: 5px;
-  }
-  
-  .buttons {
-    display: grid;
-    grid-template-columns: repeat(4, 1fr);
-    gap: 10px;
-  }
-  
-  button {
-    height: 50px;
-    border: none;
-    border-radius: 10px;
-    background-color: black;
-    color: white;
-    font-size: 18px;
-    cursor: pointer;
-    transition: 0.2s;
-    
-  }
-  
-  button:hover {
-    background-color: #333;
-  }
-  
-  .equal {
-    grid-column: span 2;
-    background-color: black;
-  }
-  
-  </style>
+  <title>Modern Calculator</title>
+  <link rel="stylesheet" href="styles.css">
 </head>
 <body>
   <div class="calculator">
-    <input type="text" id="number" placeholder="0">
+    <div class="calculator-title">Modern Calculator</div>
+    
+    <div class="display-container">
+      <div class="previous-expression" id="previous"></div>
+      <input type="text" id="number" placeholder="0" readonly>
+    </div>    
     <div class="buttons">
-      <button onclick="clearInput()">Clear</button>
-      <button onclick="onPress('-')">-</button>
-      <button onclick="onPress('*')">x</button>
-      <button onclick="clearOne()">DEL</button>
+      <button class="function" onclick="clearInput()">C</button>
+      <button class="function" onclick="clearOne()">DEL</button>
+      <button class="function" onclick="onPress('%')">%</button>
+      <button class="operator" onclick="onPress('/')">÷</button>
 
-      <button onclick="onPress('7')">7</button>
-      <button onclick="onPress('8')">8</button>
-      <button onclick="onPress('9')">9</button>
-      <button onclick="onPress('')">÷</button>
+      <button class="number" onclick="onPress('7')">7</button>
+      <button class="number" onclick="onPress('8')">8</button>
+      <button class="number" onclick="onPress('9')">9</button>
+      <button class="operator" onclick="onPress('*')">×</button>
 
-      <button onclick="onPress('4')">4</button>
-      <button onclick="onPress('5')">5</button>
-      <button onclick="onPress('6')">6</button>
-      <button onclick="onPress('+')">+</button>
+      <button class="number" onclick="onPress('4')">4</button>
+      <button class="number" onclick="onPress('5')">5</button>
+      <button class="number" onclick="onPress('6')">6</button>
+      <button class="operator" onclick="onPress('-')">-</button>
 
-      <button onclick="onPress('1')">1</button>
-      <button onclick="onPress('2')">2</button>
-      <button onclick="onPress('3')">3</button>
-      <button onclick="onPress('%')">%</button>
+      <button class="number" onclick="onPress('1')">1</button>
+      <button class="number" onclick="onPress('2')">2</button>
+      <button class="number" onclick="onPress('3')">3</button>
+      <button class="operator" onclick="onPress('+')">+</button>
 
-      <button onclick="onPress('0')">0</button>
-      <button onclick="onPress('.')">.</button>
+      <button class="number zero" onclick="onPress('0')">0</button>
+      <button class="number" onclick="onPress('.')">.</button>
       <button class="equal" onclick="ResultShow()">=</button>
     </div>
   </div>
